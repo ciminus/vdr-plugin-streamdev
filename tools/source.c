@@ -121,7 +121,7 @@ ssize_t cTBSource::ReadUntil(void *Buffer, size_t Length, const char *Seq,
 		}
 		memcpy(Buffer, m_LineBuffer.data(), len);
 		m_LineBuffer.erase(0, len + strlen(Seq));
-		Dprintf("ReadUntil: Served from Linebuffer: %d, |%.*s|\n", len, len - 1,
+		Dprintf("ReadUntil: Served from Linebuffer: %lu, |%.*s|\n", len, (int)len - 1,
 				(char*)Buffer);
 		return len;
 	}
@@ -153,7 +153,7 @@ ssize_t cTBSource::ReadUntil(void *Buffer, size_t Length, const char *Seq,
 				}
 				memcpy(Buffer, m_LineBuffer.data(), len);
 				m_LineBuffer.erase(0, len + strlen(Seq));
-				Dprintf("ReadUntil: Served from Linebuffer: %d, |%.*s|\n", len, len - 1,
+				Dprintf("ReadUntil: Served from Linebuffer: %lu, |%.*s|\n", len, (int)len - 1,
 						(char*)Buffer);
 				return len;
 			}

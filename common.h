@@ -22,7 +22,7 @@
 #define Dprintf(fmt, x...) {\
 	struct timespec ts;\
 	clock_gettime(CLOCK_MONOTONIC, &ts);\
-	fprintf(stderr, "%ld.%.3ld [%d] "fmt,\
+	fprintf(stderr, "%ld.%.3ld [%d] " fmt,\
 		ts.tv_sec, ts.tv_nsec / 1000000, cThread::ThreadId(), ##x);\
 }
 #else
