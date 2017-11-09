@@ -1216,6 +1216,7 @@ bool cConnectionVTP::CmdREAD(char *Opts)
 
 bool cConnectionVTP::CmdTUNE(char *Opts) 
 {
+    Dprintf("CmdTUNE %s\n", Opts);
 	const cChannel *chan;
 	cDevice *dev;
 	int prio = m_TunePriority;
@@ -1389,6 +1390,7 @@ bool cConnectionVTP::CmdDELF(char *Opts)
 
 bool cConnectionVTP::CmdABRT(char *Opts) 
 {
+    Dprintf("CmdABRT %s\n", Opts);
 	uint id;
 	char *ep;
 
