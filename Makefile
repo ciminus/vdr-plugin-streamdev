@@ -53,7 +53,7 @@ INCLUDES += -I$(VDRDIR)/include -I..
 export INCLUDES
 
 DEFINES += -D_GNU_SOURCE
-DEBUG = 1
+
 ifdef DEBUG
 DEFINES += -DDEBUG
 endif
