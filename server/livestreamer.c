@@ -677,7 +677,11 @@ void cStreamdevLiveStreamer::ChannelChange(const cChannel *Channel)
             for (cCamSlot *CamSlot = CamSlots.First(); CamSlot; CamSlot = CamSlots.Next(CamSlot)) {
                 if (CamSlot->ModuleStatus() == msReady) {
                     if (CamSlot->ProvidesCa(Channel->Caids())) {
+#if APIVERSNUM >= 20303 
                         if (!ChannelCamRelations.CamChecked(Channel->GetChannelID(), CamSlot->MasterSlotNumber())) {
+#else
+                        if (!ChannelCamRelations.CamChecked(Channel->GetChannelID(), CamSlot->SlotNumber())) {
+#endif
                             NumUsableSlots++;
                         }
                     }
